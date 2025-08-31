@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capacita SM - Plataforma de Capacitación</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #A3C95A;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: #4C7C46;
+}
+input, button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+button {
+    background-color: #4C7C46;
+    color: white;
+    cursor: pointer;
+}
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#menuPrincipal button {
+    width: 45%;
+    margin: 10px 2.5%;
+    padding: 15px;
+    font-size: 16px;
+}
+#seccionTrabajador, #seccionEmpresa, #seccionHistorial, #moduloCurso, #evaluacionFinal {
+    display: none;
+}
+#logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+}
+</style>
+</head>
+<body>
+<img src="logo.png" alt="logo" id="logo">
+<h1>Capacita SM - Plataforma de Capacitación</h1>
+
+<section id="menuPrincipal">
+    <h2>Acceso Plataforma</h2>
+    <button onclick="mostrarTrabajador()">Acceso Trabajador</button>
+    <button onclick="mostrarEmpresa()">Acceso Empresa</button>
+</section>
+
+<section id="seccionTrabajador">
+    <h2>Acceso Trabajador</h2>
+    <input type="text" id="rutAcceso" placeholder="Ingrese su RUT">
+    <button onclick="accederCurso()">Entrar</button>
+</section>
+
+<section id="moduloCurso">
+    <h2>Curso: Uso y Manejo de Extintores</h2>
+    <p id="contenidoModulo">Módulo 1: Uso y Manejo de Extintores.</p>
+    <button onclick="mostrarEvaluacionFinal()">Ir a Evaluación Final</button>
+</section>
+
+<section id="seccionEmpresa">
+    <h2>Acceso Empresa</h2>
+    <input type="password" id="claveEmpresa" placeholder="Clave de Acceso">
+    <button onclick="accederEmpresa()">Ingresar</button>
+</section>
+
+<section id="seccionHistorial">
+    <h2>Registro de Trabajadores</h2>
+    <input type="text" id="nombre" placeholder="Nombre Completo">
+    <input type="text" id="rut" placeholder="RUT">
+    <input type="text" id="cargo" placeholder="Cargo">
+    <input type="text" id="centro" placeholder="Centro de Negocios">
+    <input type="date" id="fechaIngreso">
+    <button onclick="registrarTrabajador()">Registrar</button>
+    <h3>Historial de Capacitados</h3>
+    <table border="1">
+        <thead>
+            <tr><th>Nombre</th><th>RUT</th><th>Cargo</th><th>Centro</th><th>Fecha Ingreso</th><th>Curso</th><th>Fecha Aprobación</th><th>Certificado</th></tr>
+        </thead>
+        <tbody id="tablaHistorial"></tbody>
+    </table>
+    <button onclick="exportarHistorialExcel()">Exportar Historial a Excel</button>
+    <button onclick="irInicio()">Inicio</button>
+</section>
+
+<section id="evaluacionFinal">
+    <h2>Evaluación Final</h2>
+    <div id="preguntasFinal"></div>
+    <p id="resultadoFinal"></p>
+</section>
+
+<script>
+let trabajadores = JSON.parse(localStorage.getItem("trabajadores")) || [];
+let historial = JSON.parse(localStorage.getItem("historial")) || [];
+const preguntasFinal = [
+    ["¿Dónde se debe apuntar al usar el extintor?", "base"],
+    ["¿Qué gas contiene un extintor de CO2?", "dioxido de carbono"],
+    ["¿Cuál es el color de los extintores de CO2?", "negro"],
+    ["¿Qué elemento NO pertenece al triángulo del fuego?", "metal"],
+    ["¿Qué tipo de fuego apaga un extintor de Clase K?", "aceites"],
+    ["¿Es necesario capacitarse antes de usar un extintor?", "si"],
+    ["¿Dónde debe ubicarse un extintor?", "visible"],
+    ["¿Debo leer las instrucciones del extintor?", "si"],
+    ["¿Se debe revisar el extintor periódicamente?", "si"],
+    ["¿Se debe usar el extintor sin el seguro colocado?", "no"]
+];
+actualizarHistorial();
+
+function mostrarTrabajador() {
+    document.getElementById('menuPrincipal').style.display = 'none';
+    document.getElementById('seccionTrabajador').style.display = 'block';
+}
+function mostrarEmpresa() {
+    document.getElementById('menuPrincipal').style.display = 'none';
+    document.getElementById('seccionEmpresa').style.display = 'block';
+}
+function registrarTrabajador() {
+    const nombre = document.getElementById('nombre').value;
+    const rut = document.getElementById('rut').value;
+    const cargo = document.getElementById('cargo').value;
+    const centro = document.getElementById('centro').value;
+    const fechaIngreso = document.getElementById('fechaIngreso').value;
+    trabajadores.push({nombre, rut, cargo, centro, fechaIngreso});
+    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
+    actualizarHistorial();
+    alert("Trabajador registrado");
+}
+function accederCurso() {
+    const rut = document.getElementById('rutAcceso').value;
+    const trabajador = trabajadores.find(t => t.rut === rut);
+    if (trabajador) {
+        document.getElementById('seccionTrabajador').style.display = 'none';
+        document.getElementById('moduloCurso').style.display = 'block';
+    } else {
+        alert("Trabajador no registrado");
+    }
+}
+function mostrarEvaluacionFinal() {
+    document.getElementById('moduloCurso').style.display = 'none';
+    document.getElementById('evaluacionFinal').style.display = 'block';
+    const contenedor = document.getElementById('preguntasFinal');
+    contenedor.innerHTML = "";
+    preguntasFinal.forEach((preg, index) => {
+        contenedor.innerHTML += `${preg[0]}<br><input type='text' id='final${index}'><br>`;
+    });
+    contenedor.innerHTML += `<button onclick='finalizarEvaluacion()'>Enviar Evaluación</button>`;
+}
+function finalizarEvaluacion() {
+    let correctas = 0;
+    preguntasFinal.forEach((preg, index) => {
+        const resp = document.getElementById(`final${index}`).value.trim().toLowerCase();
+        if (resp === preg[1].toLowerCase()) correctas++;
+    });
+    const resultado = document.getElementById('resultadoFinal');
+    if (correctas >= 6) {
+        resultado.textContent = `¡Felicidades! Has aprobado el curso.`;
+        const trabajador = trabajadores.find(t => t.rut === document.getElementById('rutAcceso').value);
+        const fecha = new Date().toLocaleString();
+        historial.push({...trabajador, curso:"Uso y Manejo de Extintores", fecha});
+        localStorage.setItem("historial", JSON.stringify(historial));
+        actualizarHistorial();
+        generarCertificado(trabajador);
+    } else {
+        resultado.textContent = "Debes repetir la evaluación.";
+    }
+}
+function accederEmpresa() {
+    const clave = document.getElementById('claveEmpresa').value;
+    if (clave === "empresa123") {
+        document.getElementById('seccionEmpresa').style.display = 'none';
+        document.getElementById('seccionHistorial').style.display = 'block';
+    } else {
+        alert("Clave incorrecta");
+    }
+}
+function actualizarHistorial() {
+    const tabla = document.getElementById('tablaHistorial');
+    tabla.innerHTML = "";
+    historial.forEach(item => {
+        const fila = `<tr>
+            <td>${item.nombre}</td>
+            <td>${item.rut}</td>
+            <td>${item.cargo}</td>
+            <td>${item.centro}</td>
+            <td>${item.fechaIngreso}</td>
+            <td>${item.curso}</td>
+            <td>${item.fecha}</td>
+            <td><button onclick='generarCertificadoPorDatos("${item.nombre}","${item.rut}")'>Descargar</button></td>
+        </tr>`;
+        tabla.innerHTML += fila;
+    });
+}
+function generarCertificado(trabajador) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text("CERTIFICADO DE PARTICIPACIÓN", 20, 30);
+    doc.setFontSize(12);
+    doc.text(`La empresa certifica que ${trabajador.nombre}, RUT ${trabajador.rut}`, 20, 50);
+    doc.text("Ha participado y aprobado el curso: Uso y Manejo de Extintores", 20, 60);
+    doc.text("Fecha: " + new Date().toLocaleDateString(), 20, 70);
+    doc.text("Capacita SM Academy", 20, 80);
+    doc.save("certificado.pdf");
+}
+function generarCertificadoPorDatos(nombre, rut) {
+    const trabajador = trabajadores.find(t => t.rut === rut);
+    generarCertificado(trabajador);
+}
+function exportarHistorialExcel() {
+    let csv = "Nombre,RUT,Cargo,Centro,Fecha Ingreso,Curso,Fecha Aprobación\n";
+    historial.forEach(h => {
+        csv += `${h.nombre},${h.rut},${h.cargo},${h.centro},${h.fechaIngreso},${h.curso},${h.fecha}\n`;
+    });
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "historial_capacitados.csv";
+    link.click();
+}
+function irInicio() {
+    location.reload();
+}
+</script>
+</body>
+</html>

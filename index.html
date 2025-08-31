@@ -8,13 +8,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root {
-  --verde-primario: #98C15E;      /* Verde claro vibrante */
-  --verde-oscuro: #16471C;        /* Verde oscuro profundo */
-  --gris-medio: #747972;          /* Gris neutro */
-  --gris-oscuro: #161617;         /* Casi negro */
-  --verde-claro: #DCE6D4;         /* Verde claro de fondo */
-  --negro: #000000;               /* Negro puro */
-  --blanco: #FFFFFF;              /* Blanco puro */
+  --verde-primario: #98C15E;
+  --verde-oscuro: #16471C;
+  --gris-medio: #747972;
+  --gris-oscuro: #161617;
+  --verde-claro: #DCE6D4;
+  --negro: #000000;
+  --blanco: #FFFFFF;
 }
 
 html, body {
@@ -23,8 +23,7 @@ html, body {
   width: 100%; 
   height: 100%; 
   font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
-  background: url('fondo.png') no-repeat center center fixed; 
-  background-size: cover;
+  background-color: var(--verde-claro);
 }
 
 @media (max-width: 768px) { 
@@ -55,8 +54,8 @@ h2 {
 
 /* Botones principales (Volver y Entrar) */
 button, .boton-volver {
-    background-color: var(--verde-primario); /* #98C15E */
-    color: var(--blanco); /* #FFFFFF */
+    background-color: var(--verde-primario);
+    color: var(--blanco);
     border: none;
     padding: 12px 20px;
     border-radius: 6px;
@@ -67,14 +66,12 @@ button, .boton-volver {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Efecto hover para ambos botones */
 button:hover, .boton-volver:hover {
-    background-color: var(--verde-oscuro); /* #16471C */
+    background-color: var(--verde-oscuro);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Opcional: Estilo para cuando se presiona el botón */
 button:active, .boton-volver:active {
     transform: translateY(0);
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -94,44 +91,34 @@ button:active, .boton-volver:active {
   background-color: var(--verde-primario);
   color: var(--blanco);
   border: 1px solid var(--verde-oscuro);
-    padding: 14px 0;
-    border-radius: 6px;
-    font-size: 18px;
-    cursor: pointer;
-      transition: all 0.3s ease;
+  padding: 14px 0;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #menuPrincipal button:hover {
-  background-color: var(--verde-oscuro);
   background-color: var(--verde-oscuro);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .boton-volver {
-  background-color: var(--verde-primario); /* #98C15E */
-    color: var(--blanco); /* #FFFFFF */
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-size: 18px;
-    margin: 10px 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--verde-primario);
+  color: var(--blanco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 18px;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .boton-volver:hover {
- background-color: var(--verde-oscuro); 
-    color: var(--blanco); /* #FFFFFF */
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-size: 18px;
-    margin: 10px 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--verde-oscuro);
 }
 
 /* Estilos para el input de RUT */
@@ -226,14 +213,14 @@ button:active, .boton-volver:active {
 }
 
 h3 {
- color: var(--verde-oscuro);
+  color: var(--verde-oscuro);
   border-bottom: 2px solid var(--verde-primario);
   padding-bottom: 8px;
   margin-top: 25px;
 }
 
 h4 {
-   color: var(--verde-oscuro);
+  color: var(--verde-oscuro);
   margin-top: 20px;
 }
 
@@ -315,23 +302,34 @@ strong {
   border: 1px solid #f5c6cb;
 }
 
+.certificado-btn {
+  background-color: var(--verde-oscuro);
+  font-size: 18px;
+  padding: 15px 30px;
+  margin: 20px auto;
+  display: block;
+}
+
+.certificado-btn:hover {
+  background-color: var(--verde-primario);
+}
+
 /* Panel de empresa */
 #panelEmpresa {
   display: none;
   height: 100vh;
   width: 100%;
-  background-color: var(--verde-claro); /* #DCE6D4 */
+  background-color: var(--verde-claro);
   font-family: "Calibri", sans-serif;
 }
 
 #menuLateral {
   width: 280px;
-  background-color: var(--verde-claro); /* #DCE6D4 */
+  background-color: var(--verde-claro);
   padding: 25px 15px;
   box-shadow: 3px 0 10px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  color: var(--verde-claro); /* #DCE6D4 */
 }
 
 #menuLateral h3 {
@@ -339,19 +337,20 @@ strong {
   margin-bottom: 5px;
   text-align: center;
   padding-bottom: 15px;
-  border-bottom: 2px solid var(--verde-claro); /* #98C15E */
+  border-bottom: 2px solid var(--verde-primario);
+  color: var(--verde-oscuro);
 }
 
 #menuLateral p {
   text-align: center;
   margin-bottom: 30px;
   font-size: 0.95rem;
-  color: var(--verde-claro); /* #DCE6D4 */
+  color: var(--gris-oscuro);
 }
 
 #menuLateral button {
-  background-color: var(--verde-primario); /* #98C15E */
-  color:var(--blanco);
+  background-color: var(--verde-primario);
+  color: var(--blanco);
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
@@ -365,8 +364,7 @@ strong {
 }
 
 #menuLateral button:hover {
-  background-color: var(--verde-claro); /* #DCE6D4 */
-  color: var(--verde-claro); /* #16471C */
+  background-color: var(--verde-oscuro);
   transform: translateX(5px);
 }
 
@@ -383,7 +381,7 @@ strong {
 #contenidoEmpresa {
   flex-grow: 1;
   padding: 30px;
-  background-color: var(--blanco); /* #FFFFFF */
+  background-color: var(--blanco);
   margin: 20px;
   border-radius: 12px;
   overflow-y: auto;
@@ -404,29 +402,29 @@ table {
 table th, table td {
   padding: 14px 16px;
   text-align: left;
-  border: 1px solid var(--gris-medio); /* #747972 */
+  border: 1px solid var(--gris-medio);
 }
 
 table th {
-  background-color: var(--verde-oscuro); /* #16471C */
-  color: var(--verde-claro); /* #DCE6D4 */
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
   font-weight: 600;
   position: sticky;
   top: 0;
 }
 
 table tr:nth-child(even) {
-  background-color: var(--verde-claro); /* #DCE6D4 */
+  background-color: var(--verde-claro);
 }
 
 table tr:hover {
-  background-color: rgba(152, 193, 94, 0.2); /* Tinte verde primario */
+  background-color: rgba(152, 193, 94, 0.2);
 }
 
 table td input {
   width: 100%;
-  border: 1px solid var(--gris-medio); /* #747972 */
-  background: var(--blanco); /* #FFFFFF */
+  border: 1px solid var(--gris-medio);
+  background: var(--blanco);
   padding: 8px;
   border-radius: 4px;
   transition: all 0.2s ease;
@@ -434,7 +432,7 @@ table td input {
 
 table td input:focus {
   outline: none;
-  border-color: var(--verde-primario); /* #98C15E */
+  border-color: var(--verde-primario);
   box-shadow: 0 0 0 2px rgba(152, 193, 94, 0.3);
 }
 
@@ -458,7 +456,12 @@ table td input:focus {
     display: block;
     overflow-x: auto;
   }
+  
+  #gridCursos {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
+
 /* Formularios */
 input[type="text"], 
 input[type="password"], 
@@ -469,21 +472,6 @@ input[type="date"] {
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #gridCursos {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  
-  #panelEmpresa {
-    flex-direction: column;
-  }
-  
-  #menuLateral {
-    width: 100%;
-  }
 }
 
 /* Estilos para el registro de capacitaciones */
@@ -513,15 +501,15 @@ input[type="date"] {
 #listaParticipantes {
   border: 1px solid var(--verde-primario);
   background-color: var(--blanco);
-    padding: 10px;
-    border-radius: 4px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .participante-item {
     display: flex;
     justify-content: space-between;
     padding: 8px;
-  border-bottom: 1px solid var(--gris-medio);
+    border-bottom: 1px solid var(--gris-medio);
 }
 
 .participante-item:last-child {
@@ -530,12 +518,14 @@ input[type="date"] {
 
 /* Estilos para el formulario de capacitación */
 #formularioCapacitacion label {
-   background-color: var(--verde-claro);
+  background-color: var(--verde-claro);
   border: 1px solid var(--verde-primario);
   display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 #formularioCapacitacion input,
@@ -545,6 +535,16 @@ input[type="date"] {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#formularioCapacitacion {
+  display: none;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 </style>
 </head>
@@ -559,7 +559,7 @@ input[type="date"] {
 </section>
 
 <!-- Sección Trabajador -->
-   <section id="seccionTrabajador" class="seccion" style="display:none">
+<section id="seccionTrabajador" class="seccion" style="display:none">
     <h2 style="color: #2E5EAA; margin-bottom: 25px;">Ingrese su RUT</h2>
     <input type="text" id="rutAcceso" placeholder="Ej: 12345678-9">
     
@@ -584,7 +584,7 @@ input[type="date"] {
         <div class="curso-tile" onclick="verCurso('Prácticas Seguras en Labores de Aseo')">Prácticas Seguras en Labores de Aseo</div>
         <div class="curso-tile" onclick="verCurso('Manipulación Higiénica de Alimentos')">Manipulación Higiénica de Alimentos</div>
         <div class="curso-tile" onclick="verCurso('Seguridad en Máquinas Panadería')">Seguridad en Máquinas Panadería</div>
-        <div class="curso-tile" onclick="verCurso('Comportamientos Seguros en Cocinas y Restaurant')">Comportamientos Seguros en Cocinas and Restaurant</div>
+        <div class="curso-tile" onclick="verCurso('Comportamientos Seguros en Cocinas y Restaurant')">Comportamientos Seguros en Cocinas y Restaurant</div>
         <div class="curso-tile" onclick="verCurso('Trayecto Seguro')">Trayecto Seguro</div>
         <div class="curso-tile" onclick="verCurso('Prevención y Respuesta a Incendios')">Prevención y Respuesta a Incendios</div>
         <div class="curso-tile" onclick="verCurso('Seguridad Frente a Incendios')">Seguridad Frente a Incendios</div>
@@ -670,12 +670,12 @@ input[type="date"] {
                 </div>
             </div>
             
-            <div id="formularioCapacitacion" style="display: none; background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <div id="formularioCapacitacion">
                 <h3>Datos de la Capacitación</h3>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div>
                         <label>Nombre de la actividad:</label>
-                        <input type="text" id="nombreActividad" style="width: 100%;">
+                        <input type="text" id="nombreActividad">
                     </div>
                     <div>
                         <label>Fecha inicio y fin:</label>
@@ -686,25 +686,25 @@ input[type="date"] {
                     </div>
                     <div>
                         <label>Modalidad:</label>
-                        <select id="modalidad" style="width: 100%;">
+                        <select id="modalidad">
                             <option value="Presencial">Presencial</option>
                             <option value="E-learning">E-learning</option>
                         </select>
                     </div>
                     <div>
                         <label>N° de horas:</label>
-                        <input type="number" id="horasCapacitacion" style="width: 100%;">
+                        <input type="number" id="horasCapacitacion">
                     </div>
                     <div>
                         <label>Tipo de actividad:</label>
-                        <select id="tipoActividad" style="width: 100%;">
+                        <select id="tipoActividad">
                             <option value="Interna">Interna</option>
                             <option value="Externa">Externa</option>
                         </select>
                     </div>
                     <div id="responsableContainer">
                         <label>Responsable:</label>
-                        <input type="text" id="responsable" style="width: 100%;">
+                        <input type="text" id="responsable">
                     </div>
                     <div style="grid-column: span 2;">
                         <label>Grupo objetivo - Observaciones:</label>
@@ -714,7 +714,7 @@ input[type="date"] {
                 
                 <h3 style="margin-top: 20px;">Participantes</h3>
                 <div style="margin-bottom: 15px;">
-                    <select id="listaTrabajadores" multiple style="width: 100%; height: 150px; margin-bottom: 10px;"></select>
+                    <select id="listaTrabajadoresSelect" multiple style="width: 100%; height: 150px; margin-bottom: 10px;"></select>
                     <button onclick="agregarParticipantes()">Agregar Participantes</button>
                 </div>
                 
@@ -742,407 +742,135 @@ input[type="date"] {
         </div>
     </div>
 </div>
+
 <script>
 // Variables globales
 const usuarioValido = "empresa";
 const claveValida = "1234";
 let trabajadores = JSON.parse(localStorage.getItem("trabajadores")) || [];
 let actual = 0;
+let cursoActual = "";
 
 // Variables globales para capacitaciones
 let capacitaciones = JSON.parse(localStorage.getItem("capacitaciones")) || [];
 let participantesTemporales = [];
-  // Módulos del curso "Prevención de Incendios y Uso de Extintores"
-const modulos = [
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>¿Qué aprenderemos?</h3>
-      <ul>
-        <li>Los <strong>fundamentos básicos</strong> de la prevención de incendios.</li>
-        <li>Cómo identificar los <strong>métodos de prevención</strong> y extinción de incendios.</li>
-        <li>Las <strong>técnicas de extinción</strong> mediante el uso de extintores.</li>
-        <li>Los distintos <strong>tipos de extintores</strong>, sus agentes, rotulación y mantenimiento.</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Declaración de Igualdad de Género</h3>
-      <p>Durante este curso usaremos un lenguaje no sexista. Sin embargo, emplearemos el masculino genérico por claridad.</p>
-    `
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>¿Qué es el fuego?</h3>
-      <ul>
-        <li>Es una <strong>reacción química</strong>.</li>
-        <li>Es un <strong>proceso exotérmico</strong>.</li>
-        <li>Es una <strong>manifestación visual</strong> de la combustión.</li>
-      </ul>
-      <h4>¿Qué es un incendio?</h4>
-      <p>Fuego de grandes proporciones que destruye cosas.</p>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál es la definición correcta de fuego?', 
-    opciones: [
-      'Un fuego de grandes proporciones que arde de forma fortuita o provocada.',
-      'Reacción química de oxidación violenta de una materia combustible.',
-      'Suceso no deseado por la ocurrencia de un fuego no controlado que se propaga.',
-      'Inflamación cuando entran en contacto combustibles sólidos, líquidos y gaseosos.'
-    ], 
-    correcta: 1 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Normativa Aplicable</h3>
-      <p><strong>Decreto Supremo N°594:</strong></p>
-      <ul>
-        <li>Artículo 44: Medidas generales de prevención</li>
-        <li>Artículo 45: Sistemas de alarma y detección</li>
-        <li>Artículo 47: Extintores portátiles</li>
-        <li>Artículo 48: Mantención de equipos</li>
-        <li>Artículo 49: Señalización</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: 'Según la normativa, ¿qué medida debe implementarse en todo lugar de trabajo para la prevención de incendios?', 
-    opciones: [
-      'Inspeccionar las instalaciones a través de un programa preestablecido.',
-      'Contar con extintores de incendio adecuados.',
-      'Implementar medidas para controlar las cargas combustibles y las fuentes de calor.',
-      'Todas son correctas.'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Normas Chilenas Aplicables</h3>
-      <ul>
-        <li><strong>NCh 2111:</strong> Protección contra incendios</li>
-        <li><strong>NCh 1429:</strong> Extintores portátiles</li>
-        <li><strong>NCh 933:</strong> Señalización</li>
-        <li><strong>NCh 1433:</strong> Instalación de extintores</li>
-        <li><strong>NCh 934:</strong> Mantención de extintores</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: 'La norma chilena NCh1429.Of1992 Mod.1995 está referida a:', 
-    opciones: [
-      'Ubicación y señalización de los extintores',
-      'Prevención de incendios',
-      'Protección contra incendios',
-      'Extintores portátiles'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Triángulo del Fuego</h3>
-      <p>El fuego requiere tres elementos para existir:</p>
-      <ul>
-        <li><strong>Comburente:</strong> Oxígeno (generalmente del aire)</li>
-        <li><strong>Calor:</strong> Energía de activación</li>
-        <li><strong>Combustible:</strong> Material que puede arder</li>
-      </ul>
-      <h4>Ejemplos:</h4>
-      <ul>
-        <li><strong>Combustible:</strong> Madera, papel, gasolina</li>
-        <li><strong>Comburente:</strong> Oxígeno del aire (21%)</li>
-        <li><strong>Calor:</strong> Llama, chispa, superficie caliente</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Qué es el comburente en el triángulo del fuego?', 
-    opciones: [
-      'Un cuerpo sólido, líquido o gaseoso susceptible de arder.',
-      'Elemento que no arde, pero hace arder un combustible.',
-      'Una sustancia líquida, sólida o gaseosa que apaga el fuego.',
-      'Una reacción química entre un cuerpo combustible y un comburente.'
-    ], 
-    correcta: 1 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Tetraedro del Fuego y Transferencia de Calor</h3>
-      <p>El modelo moderno añade un cuarto componente:</p>
-      <ul>
-        <li><strong>Reacción en cadena:</strong> Proceso químico autosostenido</li>
-      </ul>
-      <h4>Formas de transferencia de calor:</h4>
-      <ul>
-        <li><strong>Conducción:</strong> A través de materiales sólidos</li>
-        <li><strong>Convección:</strong> Por movimiento de fluidos (aire, gases)</li>
-        <li><strong>Radiación:</strong> Ondas electromagnéticas</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de las alternativas se identifica con transferencia del calor que ocurre cuando dos cuerpos están en contacto?', 
-    opciones: [
-      'Compatibilidad',
-      'Radiación',
-      'Conducción',
-      'Convección'
-    ], 
-    correcta: 2 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Principales Causas de Incendio (Parte 1)</h3>
-      <p><strong>Conexiones eléctricas deficientes:</strong></p>
-      <ul>
-        <li>Enchufes no certificados</li>
-        <li>Cables deteriorados</li>
-        <li>Cortocircuitos</li>
-        <li>Líneas recargadas</li>
-        <li>Instalaciones improvisadas</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de las siguientes alternativas se relaciona como una de las principales causas de incendio asociada a conexiones eléctricas deficientes?', 
-    opciones: [
-      'Exceso de basura en el área de trabajo.',
-      'Enchufes no certificados y cables deteriorados.',
-      'Almacenaje inadecuado de materiales inflamables.',
-      'Fumar en lugares prohibidos.'
-    ], 
-    correcta: 1 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Principales Causas de Incendio (Parte 2)</h3>
-      <p><strong>Mal manejo de cilindros de gas:</strong></p>
-      <ul>
-        <li>Alterar conexiones</li>
-        <li>Manipulación incorrecta</li>
-        <li>Almacenamiento inadecuado</li>
-        <li>Fugas no detectadas</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de las siguientes causas implica el mal manejo de cilindros de gas?', 
-    opciones: [
-      'Conexiones eléctricas deficientes.',
-      'Manejo inadecuado de materiales inflamables.',
-      'Exposición de materiales a fuentes de calor.',
-      'Alterar conexiones de gas y manipulación de cilindros a gas.'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Métodos de Extinción del Fuego (Parte 1)</h3>
-      <p><strong>Por enfriamiento:</strong> Disminuir el calor</p>
-      <ul>
-        <li>Ejemplo: Agua sobre madera</li>
-        <li>Reduce la temperatura por debajo del punto de ignición</li>
-        <li>Efectivo en fuegos Clase A (sólidos)</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: 'Es uno de los métodos de extinción mediante el uso de agua o su mezcla con aditivos, se refiere a:', 
-    opciones: [
-      'Extinción por sofocación.',
-      'Extinción por enfriamiento.',
-      'Extinción por aislación.',
-      'Extinción por inhibición.'
-    ], 
-    correcta: 1 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Métodos de Extinción del Fuego (Parte 2)</h3>
-      <p><strong>Por sofocación:</strong> Eliminación del oxígeno</p>
-      <ul>
-        <li>Ejemplo: Tapar sartén ardiendo</li>
-        <li>Usa mantas, arena o CO₂</li>
-        <li>Efectivo en fuegos Clase B (líquidos) y C (gases)</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de los siguientes métodos de extinción actúa bajando la concentración o eliminación del oxígeno?', 
-    opciones: [
-      'Por enfriamiento.',
-      'Por aislación del combustible.',
-      'Por inhibición de la reacción en cadena.',
-      'Por sofocación.'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Prevención de Incendios</h3>
-      <p><strong>Medidas generales:</strong></p>
-      <ul>
-        <li>No fumar en zonas riesgosas</li>
-        <li>No sobrecargar tomacorrientes</li>
-        <li>Mantener orden y aseo</li>
-        <li>No bloquear salidas de emergencia</li>
-        <li>Almacenar adecuadamente materiales inflamables</li>
-        <li>Realizar mantención periódica de instalaciones eléctricas</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de las siguientes medidas se recomiendan para prevenir incendios en los centros de trabajo?', 
-    opciones: [
-      'Mantener orden y aseo en los centros de trabajo.',
-      'Encender fuegos y fumar en zonas de alto riesgo de incendio.',
-      'Obstaculizar las salidas de emergencia.',
-      'Sobrecargar tomacorrientes.'
-    ], 
-    correcta: 0 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Tipos de Extintores</h3>
-      <p><strong>Clasificación por agente extintor:</strong></p>
-      <ul>
-        <li><strong>Polvo seco:</strong> ABC (multiuso) o BC</li>
-        <li><strong>CO₂:</strong> Para equipos eléctricos</li>
-        <li><strong>Agua:</strong> Solo para fuegos Clase A</li>
-        <li><strong>Espuma:</strong> Para líquidos inflamables</li>
-        <li><strong>Químicos húmedos:</strong> Para cocinas</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de los siguientes agentes se utiliza en un extintor de polvo seco?', 
-    opciones: [
-      'Agua.',
-      'Cloruro de calcio.',
-      'Dióxido de carbono (CO₂).',
-      'Bicarbonato de potasio y sodio.'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Partes del Extintor y Uso</h3>
-      <p><strong>Pasos para uso seguro del extintor:</strong></p>
-      <ol>
-        <li>Retirar el pasador de seguridad</li>
-        <li>Presionar la palanca de descarga</li>
-        <li>Apuntar la manguera a la base del fuego</li>
-        <li>Mover la manguera en forma de barrido</li>
-        <li>Acercarse con el viento a favor</li>
-        <li>Verificar que el fuego no se reactive</li>
-      </ol>
-    `
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Instrucciones Generales</h3>
-      <p><strong>Recomendaciones importantes:</strong></p>
-      <ul>
-        <li>Conocer la ubicación de los extintores</li>
-        <li>Leer las instrucciones antes de una emergencia</li>
-        <li>Usar el extintor adecuado para cada tipo de fuego</li>
-        <li>No arriesgarse si el fuego es muy grande</li>
-        <li>Dar la alarma y evacuar si no se puede controlar</li>
-      </ul>
-      <div style="text-align: center; margin: 20px 0;">
-        <img src="https://via.placeholder.com/500x300?text=Diagrama+de+Uso+de+Extintor" alt="Diagrama de uso de extintor" style="max-width: 100%; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-      </div>
-    `
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Norma Chilena N°1433</h3>
-      <p><strong>Requisitos para instalación de extintores:</strong></p>
-      <ul>
-        <li>Altura mínima: 20 cm desde el suelo</li>
-        <li>Altura máxima: 1,30 m desde el suelo</li>
-        <li>Deben ser visibles y accesibles</li>
-        <li>Señalizados según NCh 933</li>
-        <li>Libres de obstáculos en un radio de 1 m</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: 'Según la Norma Chilena N° 1433, ¿A qué altura mínima se deben colocar los extintores?', 
-    opciones: [
-      '1 metro.',
-      '50 cm.',
-      '1.30 metros.',
-      '20 cm.'
-    ], 
-    correcta: 3 
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Mantención y Rotulación</h3>
-      <p><strong>DS N° 594 Art. 51:</strong></p>
-      <ul>
-        <li>Etiqueta visible con información clara</li>
-        <li>Indicar tipo de agente extintor</li>
-        <li>Clase de fuego para el que es efectivo</li>
-        <li>Pictogramas de instrucciones</li>
-        <li>Fecha de última mantención</li>
-        <li>Próxima mantención programada</li>
-      </ul>
-    `
-  },
-  { 
-    tipo: 'eval', 
-    pregunta: '¿Cuál de las siguientes normas establece los requisitos de rotulación que deben cumplir los extintores portátiles?', 
-    opciones: [
-      'Decreto N° 369.',
-      'Norma Chilena N° 2111.',
-      'Norma Chilena N° 1430.',
-      'Decreto supremo N° 594.'
-    ], 
-    correcta: 2 
-  },
-  { 
-    tipo: 'final', 
-    mensaje: `
-      <div class="final-curso">
-        <h3>¡Felicidades!</h3>
-        <p>Has completado exitosamente el curso:</p>
-        <p><strong>Prevención de Incendios y Uso de Extintores</strong></p>
-        <p>Ahora puedes generar tu certificado de aprobación.</p>
-      </div>
-    `
-  }
-];
+
+// BASE DE DATOS DE CURSOS - Aquí puedes agregar todos tus cursos
+const cursos = {
+  "Prevención de Incendios y Uso de Extintores": [
+    { 
+      tipo: 'texto', 
+      contenido: `
+        <h3>¿Qué aprenderemos?</h3>
+        <ul>
+          <li>Los <strong>fundamentos básicos</strong> de la prevención de incendios.</li>
+          <li>Cómo identificar los <strong>métodos de prevención</strong> y extinción de incendios.</li>
+          <li>Las <strong>técnicas de extinción</strong> mediante el uso de extintores.</li>
+          <li>Los distintos <strong>tipos de extintores</strong>, sus agentes, rotulación y mantenimiento.</li>
+        </ul>
+      `
+    },
+    { 
+      tipo: 'texto', 
+      contenido: `
+        <h3>Declaración de Igualdad de Género</h3>
+        <p>Durante este curso usaremos un lenguaje no sexista. Sin embargo, emplearemos el masculino genérico por claridad.</p>
+      `
+    },
+    // ... más módulos del curso de incendios
+    { 
+      tipo: 'final', 
+      contenido: `
+        <div class="final-curso">
+          <h3>¡Felicidades!</h3>
+          <p>Has completado exitosamente el curso:</p>
+          <p><strong>Prevención de Incendios y Uso de Extintores</strong></p>
+          <p>Ahora puedes generar tu certificado de aprobación.</p>
+          <button class="certificado-btn" onclick="generarCertificado()">Generar Certificado</button>
+        </div>
+      `
+    }
+  ],
+  
+  "Manejo Manual de Cargas": [
+    { 
+      tipo: 'texto', 
+      contenido: `
+        <h3>Introducción y Marco Legal</h3>
+        <p><strong>Definición (Artículo 2 DS 63/2005):</strong></p>
+        <p>La Manipulación Manual de Carga (MMC) se define como cualquier operación de transporte o sujeción de una carga por parte de uno o más trabajadores, como el levantamiento, la colocación, el empuje, la tracción o el desplazamiento, que por sus características o condiciones ergonómicas inadecuadas entrañe riesgos para los trabajadores.</p>
+        
+        <h3>Objetivo de la Ley</h3>
+        <p>Establecer obligaciones para el empleador y medidas de prevención para evitar lesiones dorsolumbares y otros daños a la salud de los trabajadores.</p>
+        
+        <h3>Responsabilidad del Empleador (Artículo 4)</h3>
+        <p>Es obligación del empleador identificar los puestos de trabajo con MMC, evaluar los riesgos y adoptar las medidas necesarias para evitarlos o reducirlos. Esto puede incluir:</p>
+        <ul>
+          <li>Uso de ayudas mecánicas (carros, grúas, mesas elevadoras).</li>
+          <li>Organización del trabajo (reducir peso, frecuencia o duración de la tarea).</li>
+          <li>Información y capacitación a los trabajadores.</li>
+        </ul>
+        
+        <h3>Límite de Peso Recomendado (Anexo 1)</h3>
+        <p>El DS 63 sugiere un peso de <strong>50 kg</strong> como máximo de referencia, pero enfatiza que este no es un límite seguro universal. La evaluación debe considerar múltiples factores.</p>
+      `,
+      evaluacion: {
+        pregunta: "Evaluación Módulo 1: Verdadero o Falso", 
+        opciones: [
+          {
+            texto: "La Manipulación Manual de Carga se refiere solo al acto de levantar objetos pesados.",
+            correcta: false
+          },
+          {
+            texto: "Según el DS 63, el empleador está obligado a evaluar los riesgos de las tareas con MMC en su empresa.",
+            correcta: true
+          },
+          {
+            texto: "El peso máximo que un trabajador puede levantar por ley en Chile es de 50 kg en todas las circunstancias.",
+            correcta: false
+          }
+        ]
+      }
+    },
+    // ... más módulos del curso de MMC
+    { 
+      tipo: 'final', 
+      contenido: `
+        <div class="final-curso">
+          <h3>¡Felicidades!</h3>
+          <p>Has completado exitosamente el curso:</p>
+          <p><strong>Manejo Manual de Cargas - DS 63/2005</strong></p>
+          <p>Ahora puedes generar tu certificado de aprobación.</p>
+          <button class="certificado-btn" onclick="generarCertificado()">Generar Certificado</button>
+        </div>
+      `
+    }
+  ],
+  
+  // Puedes agregar más cursos aquí con la misma estructura
+  "EPP - Uso y Mantención": [
+    { 
+      tipo: 'texto', 
+      contenido: `
+        <h3>Introducción al curso de EPP</h3>
+        <p>Contenido del curso de EPP...</p>
+      `
+    },
+    // ... más módulos
+    { 
+      tipo: 'final', 
+      contenido: `
+        <div class="final-curso">
+          <h3>¡Felicidades!</h3>
+          <p>Has completado exitosamente el curso:</p>
+          <p><strong>EPP - Uso y Mantención</strong></p>
+          <p>Ahora puedes generar tu certificado de aprobación.</p>
+          <button class="certificado-btn" onclick="generarCertificado()">Generar Certificado</button>
+        </div>
+      `
+    }
+  ]
+};
 
 // Funciones de navegación
 function ocultarTodo() {
@@ -1184,6 +912,7 @@ function verCurso(nombre) {
   ocultarTodo();
   document.getElementById('moduloCurso').style.display = 'block';
   document.getElementById('tituloCurso').textContent = nombre;
+  cursoActual = nombre;
   actual = 0;
   mostrarModulo(actual);
 }
@@ -1197,12 +926,20 @@ function volverCursos() {
 function mostrarModulo(index) {
   const contenedor = document.getElementById('contenedorModulos');
   contenedor.innerHTML = '';
-  const m = modulos[index];
+  
+  // Obtener los módulos del curso actual
+  const modulosCurso = cursos[cursoActual];
+  if (!modulosCurso || index >= modulosCurso.length) return;
+  
+  const m = modulosCurso[index];
   const div = document.createElement('div');
   div.className = 'modulo active';
 
   if (m.tipo === 'texto') {
-    div.innerHTML = m.contenido;
+    div.innerHTML = `
+      <h2 class="modulo-titulo">Módulo ${index + 1}</h2>
+      <div class="contenido-modulo">${m.contenido}</div>
+    `;
     
     const botonesDiv = document.createElement('div');
     botonesDiv.className = 'botones-navegacion';
@@ -1210,16 +947,16 @@ function mostrarModulo(index) {
     if (index > 0) {
       const btnAtras = document.createElement('button');
       btnAtras.textContent = 'Atrás';
-      btnAtras.onclick = () => avanzar(-1);
+      btnAtras.onclick = () => navegarModulo(-1);
       botonesDiv.appendChild(btnAtras);
     } else {
       botonesDiv.appendChild(document.createElement('div'));
     }
     
-    if (index < modulos.length - 1) {
+    if (index < modulosCurso.length - 1) {
       const btnSiguiente = document.createElement('button');
       btnSiguiente.textContent = 'Siguiente';
-      btnSiguiente.onclick = () => avanzar();
+      btnSiguiente.onclick = () => navegarModulo(1);
       botonesDiv.appendChild(btnSiguiente);
     }
     
@@ -1227,56 +964,84 @@ function mostrarModulo(index) {
     
   } else if (m.tipo === 'eval') {
     div.innerHTML = `
-      <div class='pregunta'>${m.pregunta}</div>
+      <h2 class="modulo-titulo">Evaluación</h2>
+      <div class='pregunta'>${m.evaluacion.pregunta}</div>
       <div class="opciones-eval" id="opciones-eval"></div>
+      <div id="resultado" class="resultado"></div>
     `;
     
     const opcionesDiv = div.querySelector('#opciones-eval');
-    m.opciones.forEach((opt, i) => {
+    m.evaluacion.opciones.forEach((opt, i) => {
       const b = document.createElement('button');
       b.className = 'opcion-btn';
-      b.textContent = opt;
+      b.textContent = opt.texto;
       b.onclick = () => {
-        if (i === m.correcta) {
-          alert('✅ Respuesta correcta');
-          avanzar();
-        } else {
-          alert('❌ Respuesta incorrecta. Intente nuevamente.');
-        }
+        verificarRespuesta(opt.correcta, i);
       };
       opcionesDiv.appendChild(b);
     });
     
+    const botonesDiv = document.createElement('div');
+    botonesDiv.className = 'botones-navegacion';
+    
     if (index > 0) {
       const btnAtras = document.createElement('button');
       btnAtras.textContent = 'Atrás';
-      btnAtras.onclick = () => avanzar(-1);
-      div.appendChild(btnAtras);
+      btnAtras.onclick = () => navegarModulo(-1);
+      botonesDiv.appendChild(btnAtras);
     }
     
-  } else if (m.tipo === 'final') {
-    div.innerHTML = m.mensaje;
-    const b = document.createElement('button');
-    b.textContent = 'Generar certificado';
-    b.onclick = generarCertificado;
-    b.style.margin = '20px auto';
-    b.style.display = 'block';
-    div.appendChild(b);
+    div.appendChild(botonesDiv);
     
-    const btnAtras = document.createElement('button');
-    btnAtras.textContent = 'Volver al curso';
-    btnAtras.onclick = () => avanzar(-1);
-    btnAtras.style.margin = '10px auto';
-    btnAtras.style.display = 'block';
-    div.appendChild(btnAtras);
+  } else if (m.tipo === 'final') {
+    div.innerHTML = m.contenido;
   }
 
   contenedor.appendChild(div);
 }
 
-function avanzar(delta = 1) {
-  actual += delta;
+function navegarModulo(direccion) {
+  const modulosCurso = cursos[cursoActual];
+  actual += direccion;
+  
+  // Asegurarse de que no nos salgamos de los límites
+  if (actual < 0) actual = 0;
+  if (actual >= modulosCurso.length) actual = modulosCurso.length - 1;
+  
   mostrarModulo(actual);
+}
+
+function verificarRespuesta(esCorrecta, index) {
+  const resultado = document.getElementById('resultado');
+  const opciones = document.querySelectorAll('.opcion-btn');
+  
+  // Deshabilitar todos los botones después de la selección
+  opciones.forEach(btn => {
+    btn.disabled = true;
+  });
+  
+  if (esCorrecta) {
+    resultado.textContent = '¡Correcto!';
+    resultado.className = 'resultado correcto';
+    resultado.style.display = 'block';
+    
+    // Resaltar la opción correcta en verde
+    opciones[index].style.backgroundColor = '#d4edda';
+    opciones[index].style.borderColor = '#c3e6cb';
+    
+    // Avanzar después de un breve delay
+    setTimeout(() => {
+      navegarModulo(1);
+    }, 1500);
+  } else {
+    resultado.textContent = 'Incorrecto. Intente nuevamente.';
+    resultado.className = 'resultado incorrecto';
+    resultado.style.display = 'block';
+    
+    // Resaltar la opción incorrecta en rojo
+    opciones[index].style.backgroundColor = '#f8d7da';
+    opciones[index].style.borderColor = '#f5c6cb';
+  }
 }
 
 function generarCertificado() {
@@ -1297,7 +1062,7 @@ function generarCertificado() {
   const empresaRut = document.querySelector('#menuLateral p').textContent.replace('RUT: ', '') || '76.543.210-1';
   
   // Encabezado con logo y datos de la empresa
-  doc.addImage('logo.png', 'PNG', 15, 15, 40, 20);
+  // doc.addImage('logo.png', 'PNG', 15, 15, 40, 20); // Descomenta si tienes un logo
   doc.setFontSize(10);
   doc.setTextColor(100);
   
@@ -1312,7 +1077,7 @@ function generarCertificado() {
   // Título del certificado
   doc.setFontSize(20);
   doc.setTextColor(22, 71, 28);
-  doc.text('CERTIFICADO DE PARTICIPACIÓN', 105, 50, null, null, 'center');
+  doc.text('CERTIFICADO DE APROBACIÓN', 105, 50, null, null, 'center');
   
   // Datos del trabajador (extraídos del sistema)
   doc.setFontSize(14);
@@ -1342,7 +1107,7 @@ function generarCertificado() {
   doc.setFontSize(12);
   doc.setTextColor(100);
   doc.text('Modalidad: E-Learning', 20, 130);
-  doc.text('Duración: 1:00:00 horas cronológicas', 20, 136);
+  doc.text('Duración: 2:00:00 horas cronológicas', 20, 136);
   doc.text('Fecha inicio: ' + new Date().toLocaleDateString('es-CL'), 20, 142);
   doc.text('Fecha término: ' + new Date().toLocaleDateString('es-CL'), 20, 148);
   
@@ -1539,7 +1304,7 @@ function cancelarCapacitacion() {
 }
 
 function cargarListaTrabajadores() {
-    const select = document.getElementById('listaTrabajadores');
+    const select = document.getElementById('listaTrabajadoresSelect');
     select.innerHTML = '';
     
     trabajadores.forEach(trabajador => {
@@ -1551,7 +1316,7 @@ function cargarListaTrabajadores() {
 }
 
 function agregarParticipantes() {
-    const select = document.getElementById('listaTrabajadores');
+    const select = document.getElementById('listaTrabajadoresSelect');
     const selectedOptions = Array.from(select.selectedOptions);
     
     selectedOptions.forEach(option => {
@@ -1643,597 +1408,223 @@ function cargarListaCapacitaciones() {
             <td>
                 <button onclick="verDetalleCapacitacion(${capacitacion.id})">Ver</button>
                 <button onclick="exportarRegistroCapacitacion(${capacitacion.id})">Descargar</button>
-                <button onclick="eliminarCapacitacion(${capacitacion.id})" style="color: red;">Eliminar</button>
+                <button onclick="eliminarCapacitacion(${capacitacion.id})" style="color: red;">Eeliminar</button>
             </td>
         `;
         tbody.appendChild(tr);
     });
 }
 
-
-_______________________________________________________________________________________________________
-// Módulos del curso "Manejo Manual de Cargas"
-const modulosMMC = [
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Introducción y Marco Legal</h3>
-      <p><strong>Definición (Artículo 2 DS 63/2005):</strong></p>
-      <p>La Manipulación Manual de Carga (MMC) se define como cualquier operación de transporte o sujeción de una carga por parte de uno o más trabajadores, como el levantamiento, la colocación, el empuje, la tracción o el desplazamiento, que por sus características o condiciones ergonómicas inadecuadas entrañe riesgos para los trabajadores.</p>
-      
-      <h3>Objetivo de la Ley</h3>
-      <p>Establecer obligaciones para el empleador y medidas de prevención para evitar lesiones dorsolumbares y otros daños a la salud de los trabajadores.</p>
-      
-      <h3>Responsabilidad del Empleador (Artículo 4)</h3>
-      <p>Es obligación del empleador identificar los puestos de trabajo con MMC, evaluar los riesgos y adoptar las medidas necesarias para evitarlos o reducirlos. Esto puede incluir:</p>
-      <ul>
-        <li>Uso de ayudas mecánicas (carros, grúas, mesas elevadoras).</li>
-        <li>Organización del trabajo (reducir peso, frecuencia o duración de la tarea).</li>
-        <li>Información y capacitación a los trabajadores.</li>
-      </ul>
-      
-      <h3>Límite de Peso Recomendado (Anexo 1)</h3>
-      <p>El DS 63 sugiere un peso de <strong>50 kg</strong> como máximo de referencia, pero enfatiza que este no es un límite seguro universal. La evaluación debe considerar múltiples factores.</p>
-    `,
-    evaluacion: {
-      pregunta: "Evaluación Módulo 1: Verdadero o Falso", 
-      opciones: [
-        {
-          texto: "La Manipulación Manual de Carga se refiere solo al acto de levantar objetos pesados.",
-          correcta: false
-        },
-        {
-          texto: "Según el DS 63, el empleador está obligado a evaluar los riesgos de las tareas con MMC en su empresa.",
-          correcta: true
-        },
-        {
-          texto: "El peso máximo que un trabajador puede levantar por ley en Chile es de 50 kg en todas las circunstancias.",
-          correcta: false
-        }
-      ]
-    }
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Factores de Riesgo y Evaluación</h3>
-      <p>El DS 63/2005 establece que se deben considerar todos los factores siguientes para evaluar el riesgo de una tarea de MMC:</p>
-      
-      <h3>Características de la Carga</h3>
-      <p>Peso, tamaño, voluminosidad, inestable, difícil de agarrar, caliente o fría.</p>
-      
-      <h3>Esfuerzo Físico Requerido</h3>
-      <p>Demasiado intenso, realizado con torsión o flexión del tronco, o que implique un movimiento brusco.</p>
-      
-      <h3>Características del Entorno de Trabajo</h3>
-      <p>Espacio insuficiente, suelo irregular o resbaladizo, desniveles, temperatura o humedad inadecuadas.</p>
-      
-      <h3>Exigencias de la Actividad</h3>
-      <p>Ritmo impuesto por un proceso automático, frecuencia elevada, periodos de descanso insuficientes.</p>
-      
-      <h3>Factores Individuales</h3>
-      <p>Capacidad física de la persona, formación o experiencia, edad, ropa o calzado inadecuado, embarazo o problemas de salud preexistentes.</p>
-    `,
-    evaluacion: {
-      pregunta: "Evaluación Módulo 2: Verdadero o Falso", 
-      opciones: [
-        {
-          texto: "Para evaluar el riesgo de una carga, solo es necesario conocer su peso.",
-          correcta: false
-        },
-        {
-          texto: "Un suelo resbaladizo o desnivelado es un factor de riesgo a considerar en el MMC.",
-          correcta: true
-        },
-        {
-          texto: "La experiencia previa del trabajador es un factor irrelevante en la evaluación del riesgo.",
-          correcta: false
-        }
-      ]
-    }
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Técnicas Seguras de Manipulación (Principios Básicos)</h3>
-      
-      <h3>Planificación</h3>
-      <p>Antes de mover la carga, planifique el movimiento y el camino. Verifique que la ruta esté despejada.</p>
-      
-      <h3>Postura Base</h3>
-      <p>Pies separados al ancho de los hombros, uno ligeramente más adelantado para mayor estabilidad.</p>
-      
-      <h3>Agarre Firme</h3>
-      <p>Asegurar un buen agarre con las palmas de las manos y los dedos. Usar guantes de ser necesario.</p>
-      
-      <h3>Espalda Recta, Carga Cerca</h3>
-      <p>Mantener la espalda en su posición natural (recta, no necesariamente vertical) y la carga lo más cerca posible del cuerpo. El centro de gravedad debe estar cerca.</p>
-      
-      <h3>Uso de Piernas</h3>
-      <p>La fuerza debe provenir de los músculos de las piernas, flexionando las rodillas, no de la espalda.</p>
-      
-      <h3>Movimientos Suaves</h3>
-      <p>Evitar giros o movimientos bruscos. Si debe girar, hacerlo con los feet, no con la cintura.</p>
-      
-      <h3>Para Empujar o Traccionar</h3>
-      <p>Es preferible empujar antes que traccionar. Usar el peso del cuerpo y mantener la espalda recta.</p>
-      
-      <h3>Comunicación</h3>
-      <p>Si se trabaja en equipo, coordinar los movimientos con los compañeros.</p>
-      
-      <h3>Ayudas Mecánicas</h3>
-      <p>Utilizar siempre las herramientas a disposición (carretillas, polipastos, mesas elevadoras).</p>
-    `,
-    evaluacion: {
-      pregunta: "Evaluación Módulo 3: Verdadero o Falso", 
-      opciones: [
-        {
-          texto: "La técnica correcta para levantar una carga implica doblar la espalda y estirar las piernas.",
-          correcta: false
-        },
-        {
-          texto: "Es importante mantener la carga lejos del cuerpo para tener más espacio de movimiento.",
-          correcta: false
-        },
-        {
-          texto: "Al manipular una carga pesada, es preferible empujarla en lugar de tirar de ella.",
-          correcta: true
-        }
-      ]
-    }
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Derechos, Deberes y Medidas de Control</h3>
-      
-      <h3>Derechos del Trabajador (Ley 16.744)</h3>
-      <ul>
-        <li>Ser informado y capacitado sobre los riesgos de su puesto.</li>
-        <li>Contar con elementos de protección personal (EEP) si son necesarios (guantes antipinchazo, calzado de seguridad, fajas de sujeción lumbar solo si está evaluado y recomendado).</li>
-        <li>Participar en los procesos de evaluación de riesgo, a través de su representante de prevención de riesgos.</li>
-        <li>Interrumpir una actividad si considera que existe un peligro grave e inminente para su vida o salud.</li>
-      </ul>
-      
-      <h3>Deberes del Trabajador</h3>
-      <ul>
-        <li>Utilizar correctamente las ayudas mecánicas y los EPP proporcionados.</li>
-        <li>Informar inmediatamente a su supervisor sobre cualquier situación de riesgo que identifique.</li>
-        <li>Seguir los procedimientos de trabajo seguro enseñados en la capacitación.</li>
-      </ul>
-      
-      <h3>Medidas de Control (Jerarquía de Control)</h3>
-      <ol>
-        <li><strong>Eliminación:</strong> ¿Se puede evitar manipular la carga?</li>
-        <li><strong>Sustitución:</strong> ¿Se puede usar un material más liviano?</li>
-        <li><strong>Controles de Ingeniería:</strong> Usar grúas, carros, bandas transportadoras, mesas elevadoras.</li>
-        <li><strong>Controles Administrativos:</strong> Rotación de personal, pausas, capacitación.</li>
-        <li><strong>Elementos de Protección Personal (EPP):</strong> Guantes, calzado de seguridad. <strong>La faja lumbar no es un EPP</strong> y su uso debe ser evaluado por un especialista, ya que no previene lesiones por sí sola.</li>
-      </ol>
-    `,
-    evaluacion: {
-      pregunta: "Evaluación Módulo 4: Verdadero o Falso", 
-      opciones: [
-        {
-          texto: "El trabajador tiene el derecho y el deber de informar sobre una condición de trabajo que considera peligrosa.",
-          correcta: true
-        },
-        {
-          texto: "La primera medida de control que debe considerar un empleador es entregar fajas lumbares a todos los trabajadores.",
-          correcta: false
-        },
-        {
-          texto: "El uso de una carretilla para mover cajas es un ejemplo de control de ingeniería.",
-          correcta: true
-        }
-      ]
-    }
-  },
-  { 
-    tipo: 'texto', 
-    contenido: `
-      <h3>Evaluación Final del Curso</h3>
-      <p>A continuación se presenta la evaluación final del curso. Conteste las siguientes preguntas de verdadero o falso:</p>
-    `,
-    evaluacion: {
-      pregunta: "Evaluación Final: Verdadero o Falso", 
-      opciones: [
-        {
-          texto: "El Decreto Supremo 63 del MINSAL prohíbe terminantemente la manipulación de cargas superiores a 25 kg.",
-          correcta: false
-        },
-        {
-          texto: "Al levantar una carga, es correcto girar el tronco para ahorrar tiempo y movimientos.",
-          correcta: false
-        },
-        {
-          texto: "La evaluación de riesgo de una tarea de MMC debe considerar factores del entorno, como el estado del piso.",
-          correcta: true
-        },
-        {
-          texto: "El empleador está obligado a proporcionar capacitación sobre MMC a sus trabajadores expuestos.",
-          correcta: true
-        },
-        {
-          texto: "La técnica de levantamiento seguro se basa en flexionar las rodillas y mantener la espalda recta.",
-          correcta: true
-        }
-      ]
-    }
-  },
-  { 
-    tipo: 'final', 
-    contenido: `
-      <div class="final-curso">
-        <h3>¡Felicidades!</h3>
-        <p>Has completado exitosamente el curso:</p>
-        <p><strong>Manejo Manual de Cargas - DS 63/2005</strong></p>
-        <p>Ahora puedes generar tu certificado de aprobación.</p>
-        <button class="certificado-btn" onclick="generarCertificado()">Generar Certificado</button>
-      </div>
-    `,
-    evaluacion: null
-  }
-];
-
-// Funciones de navegación
-function ocultarTodo() {
-  document.querySelectorAll(".seccion").forEach(s => s.style.display = "none"); 
-  document.getElementById('menuPrincipal').style.display = "none"; 
-  document.getElementById('panelEmpresa').style.display = "none";
-}
-
-function volverMenu() {
-  ocultarTodo();
-  document.getElementById('menuPrincipal').style.display = 'block';
-}
-
-function mostrarTrabajador() {
-  ocultarTodo();
-  document.getElementById('seccionTrabajador').style.display = 'block';
-}
-
-function mostrarLoginEmpresa() {
-  ocultarTodo();
-  document.getElementById('loginEmpresa').style.display = 'block';
-}
-
-function accederTrabajador() {
-  const r = document.getElementById('rutAcceso').value.trim();
-  if(trabajadores.find(t => t.rut === r)) {
-    ocultarTodo();
-    document.getElementById('mosaicoCursos').style.display = 'block';
-  } else {
-    alert("RUT no registrado");
-  }
-}
-
-function volverTrabajador() {
-  mostrarTrabajador();
-}
-
-function verCurso(nombre) { 
-  ocultarTodo();
-  document.getElementById('moduloCurso').style.display = 'block';
-  document.getElementById('tituloCurso').textContent = nombre;
-  actual = 0;
-  
-  // Cargar el curso correspondiente
-  if (nombre === 'Manejo Manual de Cargas') {
-    mostrarModuloMMC(actual);
-  } else {
-    // Aquí se cargarían otros cursos si existieran
-    mostrarModulo(actual);
-  }
-}
-
-function volverCursos() {
-  document.getElementById('mosaicoCursos').style.display = 'block';
-  document.getElementById('moduloCurso').style.display = 'none';
-}
-
-// Funciones del módulo del curso para Manejo Manual de Cargas
-function mostrarModuloMMC(index) {
-  const contenedor = document.getElementById('contenedorModulos');
-  contenedor.innerHTML = '';
-  const m = modulosMMC[index];
-  const div = document.createElement('div');
-  div.className = 'modulo active';
-
-  if (m.tipo === 'texto') {
-    div.innerHTML = `
-      <h2 class="modulo-titulo">${modulosMMC[index].titulo || 'Módulo ' + (index + 1)}</h2>
-      <div class="contenido-modulo">${m.contenido}</div>
+function verDetalleCapacitacion(id) {
+    const capacitacion = capacitaciones.find(c => c.id === id);
+    if(!capacitacion) return;
+    
+    let html = `
+        <h3>${capacitacion.nombreActividad}</h3>
+        <p><strong>Fecha:</strong> ${new Date(capacitacion.fechaInicio).toLocaleDateString()} - ${new Date(capacitacion.fechaFin).toLocaleDateString()}</p>
+        <p><strong>Modalidad:</strong> ${capacitacion.modalidad}</p>
+        <p><strong>Horas:</strong> ${capacitacion.horas}</p>
+        <p><strong>Tipo de actividad:</strong> ${capacitacion.tipoActividad}</p>
+        <p><strong>Responsable:</strong> ${capacitacion.responsable}</p>
+        <p><strong>Grupo objetivo:</strong> ${capacitacion.grupoObjetivo}</p>
+        
+        <h4>Participantes (${capacitacion.participantes.length}):</h4>
+        <table style="width: 100%; margin-top: 10px;">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>RUT</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
     `;
     
-    const botonesDiv = document.createElement('div');
-    botonesDiv.className = 'botones-navegacion';
+    capacitacion.participantes.forEach(participante => {
+        html += `
+            <tr>
+                <td>${participante.nombre}</td>
+                <td>${participante.rut}</td>
+                <td>${participante.cargo}</td>
+            </tr>
+        `;
+    });
     
-    if (index > 0) {
-      const btnAtras = document.createElement('button');
-      btnAtras.textContent = 'Atrás';
-      btnAtras.onclick = () => avanzarMMC(-1);
-      botonesDiv.appendChild(btnAtras);
-    } else {
-      botonesDiv.appendChild(document.createElement('div'));
-    }
-    
-    if (index < modulosMMC.length - 1) {
-      const btnSiguiente = document.createElement('button');
-      btnSiguiente.textContent = 'Siguiente';
-      btnSiguiente.onclick = () => avanzarMMC();
-      botonesDiv.appendChild(btnSiguiente);
-    }
-    
-    div.appendChild(botonesDiv);
-    
-  } else if (m.tipo === 'eval') {
-    div.innerHTML = `
-      <h2 class="modulo-titulo">${modulosMMC[index].titulo || 'Evaluación'}</h2>
-      <div class='pregunta'>${m.evaluacion.pregunta}</div>
-      <div class="opciones-eval" id="opciones-eval"></div>
-      <div id="resultado" class="resultado"></div>
+    html += `
+            </tbody>
+        </table>
+        <div style="margin-top: 20px; text-align: center;">
+            <button onclick="document.getElementById('modalDetalle').style.display = 'none'">Cerrar</button>
+        </div>
     `;
     
-    const opcionesDiv = div.querySelector('#opciones-eval');
-    m.evaluacion.opciones.forEach((opt, i) => {
-      const b = document.createElement('button');
-      b.className = 'opcion-btn';
-      b.textContent = opt.texto;
-      b.onclick = () => {
-        verificarRespuestaMMC(opt.correcta, i);
-      };
-      opcionesDiv.appendChild(b);
-    });
-    
-    const botonesDiv = document.createElement('div');
-    botonesDiv.className = 'botones-navegacion';
-    
-    if (index > 0) {
-      const btnAtras = document.createElement('button');
-      btnAtras.textContent = 'Atrás';
-      btnAtras.onclick = () => avanzarMMC(-1);
-      botonesDiv.appendChild(btnAtras);
+    // Crear modal si no existe
+    if(!document.getElementById('modalDetalle')) {
+        const modal = document.createElement('div');
+        modal.id = 'modalDetalle';
+        modal.style.display = 'none';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%;
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+        modal.style.zIndex = '1000';
+        modal.style.overflow = 'auto';
+        
+        const modalContent = document.createElement('div');
+        modalContent.style.backgroundColor = 'white';
+        modalContent.style.margin = '50px auto';
+        modalContent.style.padding = '20px';
+        modalContent.style.borderRadius = '8px';
+        modalContent.style.maxWidth = '800px';
+        
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
     }
     
-    div.appendChild(botonesDiv);
-    
-  } else if (m.tipo === 'final') {
-    div.innerHTML = m.contenido;
-    
-    const btnAtras = document.createElement('button');
-    btnAtras.textContent = 'Volver al curso';
-    btnAtras.onclick = () => avanzarMMC(-1);
-    btnAtras.style.margin = '10px auto';
-    btnAtras.style.display = 'block';
-    div.appendChild(btnAtras);
-  }
-
-  contenedor.appendChild(div);
+    document.getElementById('modalDetalle').style.display = 'block';
+    document.getElementById('modalDetalle').firstChild.innerHTML = html;
 }
 
-function avanzarMMC(delta = 1) {
-  actual += delta;
-  
-  // Asegurarse de que no nos salgamos de los límites
-  if (actual < 0) actual = 0;
-  if (actual >= modulosMMC.length) actual = modulosMMC.length - 1;
-  
-  mostrarModuloMMC(actual);
-}
-
-function verificarRespuestaMMC(esCorrecta, index) {
-  const resultado = document.getElementById('resultado');
-  const opciones = document.querySelectorAll('.opcion-btn');
-  
-  // Deshabilitar todos los botones después de la selección
-  opciones.forEach(btn => {
-    btn.disabled = true;
-  });
-  
-  if (esCorrecta) {
-    resultado.textContent = '¡Correcto!';
-    resultado.className = 'resultado correcto';
-    resultado.style.display = 'block';
-    
-    // Resaltar la opción correcta en verde
-    opciones[index].style.backgroundColor = '#d4edda';
-    opciones[index].style.borderColor = '#c3e6cb';
-    
-    // Avanzar después de un breve delay
-    setTimeout(() => {
-      if (actual < modulosMMC.length - 1) {
-        avanzarMMC();
-      }
-    }, 1500);
-  } else {
-    resultado.textContent = 'Incorrecto. Intente nuevamente.';
-    resultado.className = 'resultado incorrecto';
-    resultado.style.display = 'block';
-    
-    // Resaltar la opción incorrecta en rojo
-    opciones[index].style.backgroundColor = '#f8d7da';
-    opciones[index].style.borderColor = '#f5c6cb';
-    
-    // Encontrar y resaltar la opción correcta
-    opciones.forEach((btn, i) => {
-      if (modulosMMC[actual].evaluacion.opciones[i].correcta) {
-        btn.style.backgroundColor = '#d4edda';
-        btn.style.borderColor = '#c3e6cb';
-      }
-    });
-  }
-}
-
-function generarCertificado() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  
-  // Obtener datos del trabajador
-  const rutTrabajador = document.getElementById('rutAcceso').value.trim();
-  const trabajador = trabajadores.find(t => t.rut === rutTrabajador) || {
-    nombre: "Nombre del Trabajador",
-    rut: "12.345.678-9",
-    cargo: "Cargo del Trabajador",
-    centro: "Centro de Trabajo"
-  };
-  
-  // Obtener datos de la empresa del panel
-  const empresaNombre = document.querySelector('#menuLateral h3').textContent || 'CAPACITA SM';
-  const empresaRut = document.querySelector('#menuLateral p').textContent.replace('RUT: ', '') || '76.543.210-1';
-  
-  // Encabezado con logo y datos de la empresa
-  doc.addImage('logo.png', 'PNG', 15, 15, 40, 20);
-  doc.setFontSize(10);
-  doc.setTextColor(100);
-  
-  // Datos de la empresa extraídos del panel
-  doc.text(`Empresa: ${empresaNombre}`, 150, 20);
-  doc.text(`RUT Empresa: ${empresaRut}`, 150, 25);
-  
-  const ahora = new Date();
-  doc.text('Fecha emisión: ' + ahora.toLocaleDateString('es-CL'), 150, 30);
-  doc.text('Hora emisión: ' + ahora.toLocaleTimeString('es-CL', {hour: '2-digit', minute:'2-digit'}), 150, 35);
-  
-  // Título del certificado
-  doc.setFontSize(20);
-  doc.setTextColor(22, 71, 28);
-  doc.text('CERTIFICADO DE APROBACIÓN', 105, 50, null, null, 'center');
-  
-  // Datos del trabajador (extraídos del sistema)
-  doc.setFontSize(14);
-  doc.setTextColor(0, 0, 0);
-  doc.text('Se certifica que:', 20, 70);
-  
-  doc.setFontSize(16);
-  doc.setTextColor(22, 71, 28);
-  doc.text(trabajador.nombre.toUpperCase(), 20, 80);
-  
-  doc.setFontSize(12);
-  doc.setTextColor(100);
-  doc.text('RUT: ' + trabajador.rut, 20, 86);
-  doc.text('Cargo: ' + trabajador.cargo, 20, 92);
-  doc.text('Centro de trabajo: ' + trabajador.centro, 20, 98);
-  
-  // Detalles del curso
-  doc.setFontSize(14);
-  doc.setTextColor(0, 0, 0);
-  doc.text('Ha completado satisfactoriamente el curso:', 20, 110);
-  
-  const tituloCurso = document.getElementById('tituloCurso').textContent;
-  doc.setFontSize(16);
-  doc.setTextColor(22, 71, 28);
-  doc.text(tituloCurso.toUpperCase(), 20, 120);
-  
-  doc.setFontSize(12);
-  doc.setTextColor(100);
-  doc.text('Modalidad: E-Learning', 20, 130);
-  doc.text('Duración: 2:00:00 horas cronológicas', 20, 136);
-  doc.text('Fecha inicio: ' + new Date().toLocaleDateString('es-CL'), 20, 142);
-  doc.text('Fecha término: ' + new Date().toLocaleDateString('es-CL'), 20, 148);
-  
-  // Vigencia y validación
-  doc.setFontSize(10);
-  doc.text('Vigencia: 2 años a partir de la fecha de término', 20, 160);
-  doc.text('Código de validación: ' + Math.random().toString(36).substring(2, 10).toUpperCase(), 20, 166);
-  
-  // Firmas
-  doc.setFontSize(12);
-  doc.text('_________________________', 20, 190);
-  doc.text('Firma Instructor', 20, 196);
-  
-  doc.text('_________________________', 120, 190);
-  doc.text('Firma Representante Legal', 120, 196);
-  
-  // Pie de página
-  doc.setFontSize(8);
-  doc.setTextColor(150);
-  doc.text('Este certificado es válido solo si puede ser verificado en nuestro sistema', 105, 280, null, null, 'center');
-  
-  // Guardar el PDF
-  doc.save(`Certificado_${trabajador.nombre.replace(/ /g, '_')}_${tituloCurso.replace(/ /g, '_')}.pdf`);
-}
-
-// Funciones del panel de empresa (se mantienen igual)
-function accederEmpresa() {
-  const usuario = document.getElementById('usuarioEmpresa').value.trim();
-  const clave = document.getElementById('claveEmpresa').value.trim();
-  
-  if(usuario === usuarioValido && clave === claveValida) {
-    ocultarTodo();
-    document.getElementById('panelEmpresa').style.display = 'flex';
-    mostrarSeccion('gestionTrabajadores');
-    actualizarTabla();
-  } else {
-    alert("Credenciales incorrectas");
-  }
-}
-
-function mostrarSeccion(seccion) {
-    document.getElementById('gestionTrabajadores').style.display = 'none';
-    document.getElementById('registroCapacitaciones').style.display = 'none';
-    document.getElementById(seccion).style.display = 'block';
-    
-    if(seccion === 'registroCapacitaciones') {
+function eliminarCapacitacion(id) {
+    if(confirm("¿Está seguro que desea eliminar esta capacitación?")) {
+        capacitaciones = capacitaciones.filter(c => c.id !== id);
+        localStorage.setItem("capacitaciones", JSON.stringify(capacitaciones));
         cargarListaCapacitaciones();
     }
 }
 
-function registrarTrabajador() {
-  const n = document.getElementById('nombre').value.trim();
-  const r = document.getElementById('rut').value.trim();
-  const c = document.getElementById('cargo').value.trim();
-  const ce = document.getElementById('centro').value.trim();
-  const f = document.getElementById('fechaIngreso').value;
-  
-  if(n && r && c && ce && f) {
-    trabajadores.push({
-      nombre: n,
-      rut: r,
-      cargo: c,
-      centro: ce,
-      fechaIngreso: f
+function exportarRegistroCapacitacion(id) {
+    const capacitacion = capacitaciones.find(c => c.id === id);
+    if(!capacitacion) return;
+    
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    // Encabezado
+    doc.setFontSize(16);
+    doc.setTextColor(22, 71, 28);
+    doc.text('REGISTRO DE CAPACITACIÓN', 105, 20, { align: 'center' });
+    
+    // Logo y datos de cabecera
+    // doc.addImage('logo.png', 'PNG', 20, 25, 40, 20); // Descomenta si tienes un logo
+    doc.setFontSize(10);
+    doc.text(`Código: 001`, 150, 30);
+    doc.text(`Versión: 001`, 150, 35);
+    doc.text(`Fecha aprobación: ${new Date().toLocaleDateString()}`, 150, 40);
+    
+    // 1. ANTECEDENTES DEL SOLICITANTE
+    doc.setFontSize(12);
+    doc.text('1. ANTECEDENTES DEL SOLICITANTE', 15, 60);
+    doc.setFontSize(10);
+    doc.text('A continuación, se detallan los antecedentes de la actividad de capacitación implementada para dar cumplimiento', 15, 65);
+    doc.text(' a lo establecido en el Sistema de Gestión de SST', 15, 70);
+    
+    // Tabla de datos de la capacitación
+    doc.setFontSize(10);
+    doc.text('Nombre de la actividad:', 15, 80);
+    doc.text(capacitacion.nombreActividad, 60, 80);
+    
+    doc.text('Fecha inicio y fin:', 15, 85);
+    doc.text(`${new Date(capacitacion.fechaInicio).toLocaleDateString()} - ${new Date(capacitacion.fechaFin).toLocaleDateString()}`, 60, 85);
+    
+    doc.text('Modalidad:', 15, 90);
+    doc.text(capacitacion.modalidad, 60, 90);
+    
+    doc.text('N° de horas:', 15, 95);
+    doc.text(capacitacion.horas, 60, 95);
+    
+    doc.text('Tipo de actividad:', 15, 100);
+    doc.text(capacitacion.tipoActividad, 60, 100);
+    
+    if(capacitacion.tipoActividad === 'Interna') {
+        doc.text('Responsable:', 15, 105);
+        doc.text(capacitacion.responsable, 60, 105);
+        doc.text('Cargo:', 15, 110);
+        doc.text('JEFE DE RRHH', 60, 110);
+    }
+    
+    doc.text('Grupo objetivo de los participantes - Observaciones:', 15, 115);
+    doc.text(capacitacion.grupoObjetivo, 15, 120);
+    
+    // 2. INFORMACIÓN PARTICIPANTES
+    doc.setFontSize(12);
+    doc.text('2. INFORMACIÓN PARTICIPANTES', 15, 135);
+    doc.setFontSize(10);
+    
+    // Tabla de participantes
+    let y = 150;
+    doc.setFontSize(10);
+    doc.text('Nombre del participante', 15, y);
+    doc.text('Rut', 70, y);
+    doc.text('Cargo', 110, y);
+    doc.text('Firma', 150, y);
+    y += 5;
+    doc.line(15, y, 190, y);
+    y += 10;
+    
+    capacitacion.participantes.forEach(participante => {
+        doc.text(participante.nombre, 15, y);
+        doc.text(participante.rut, 70, y);
+        doc.text(participante.cargo, 110, y);
+        y += 10;
+        
+        if(y > 270) {
+            doc.addPage();
+            y = 20;
+        }
     });
-    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
-    actualizarTabla();
-    // Limpiar campos
-    document.getElementById('nombre').value = '';
-    document.getElementById('rut').value = '';
-    document.getElementById('cargo').value = '';
-    document.getElementById('centro').value = '';
-    document.getElementById('fechaIngreso').value = '';
-  } else {
-    alert("Complete todos los campos");
-  }
+    
+    // Guardar documento
+    doc.save(`Registro_Capacitacion_${capacitacion.nombreActividad.replace(/ /g, '_')}.pdf`);
 }
 
-function actualizarTabla() {
-  const t = document.getElementById('tablaTrabajadores');
-  t.innerHTML = "";
-  
-  trabajadores.forEach((tr, i) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td>${tr.rut}</td>
-      <td>${tr.nombre}</td>
-      <td>${tr.cargo}</td>
-      <td>${tr.centro}</td>
-      <td>${tr.fechaIngreso}</td>
-      <td><button onclick='eliminarTrabajador(${i})'>Eliminar</button></td>
-    `;
-    t.appendChild(row);
-  });
+function exportarCapacitaciones() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    doc.setFontSize(16);
+    doc.text('LISTADO DE CAPACITACIONES', 105, 20, { align: 'center' });
+    
+    let y = 30;
+    capacitaciones.forEach((cap, index) => {
+        doc.setFontSize(12);
+        doc.text(`${index + 1}. ${cap.nombreActividad}`, 20, y);
+        doc.setFontSize(10);
+        doc.text(`Fecha: ${new Date(cap.fechaInicio).toLocaleDateString()} - ${new Date(cap.fechaFin).toLocaleDateString()}`, 20, y + 5);
+        doc.text(`Modalidad: ${cap.modalidad} - Horas: ${cap.horas}`, 20, y + 10);
+        doc.text(`Participantes: ${cap.participantes.length}`, 20, y + 15);
+        
+        y += 25;
+        if(y > 270) {
+            doc.addPage();
+            y = 20;
+        }
+    });
+    
+    doc.save('Listado_Capacitaciones.pdf');
 }
 
-function eliminarTrabajador(i) {
-  if(confirm("¿Está seguro que desea eliminar este trabajador?")) {
-    trabajadores.splice(i, 1);
-    localStorage.setItem("trabajadores", JSON.stringify(trabajadores));
-    actualizarTabla();
-  }
+function filtrarCapacitaciones() {
+    const filtro = document.getElementById('filtroCapacitaciones').value.toLowerCase();
+    const filas = document.getElementById('listaCapacitaciones').getElementsByTagName('tr');
+    
+    for(let fila of filas) {
+        const textoFila = fila.textContent.toLowerCase();
+        fila.style.display = textoFila.includes(filtro) ? '' : 'none';
+    }
 }
 
-// ... (resto de las funciones del panel de empresa se mantienen igual)
+function filtrarTrabajadores() {
+    const filtro = document.getElementById('filtroTrabajadores').value.toLowerCase();
+    const filas = document.getElementById('tablaTrabajadores').getElementsByTagName('tr');
+    
+    for(let fila of filas) {
+        const textoFila = fila.textContent.toLowerCase();
+        fila.style.display = textoFila.includes(filtro) ? '' : 'none';
+    }
+}
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
@@ -2242,4 +1633,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
